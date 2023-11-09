@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employés</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
+    <script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+    <script type="text/javascript" src="societes.js"></script>
+    <script type="text/javascript" src="enfants.js"></script>
+    <script type="text/javascript" src="employes1.js"></script>
+    <script type="text/javascript" src="directeurs.js"></script>
+
+</head>
+
+<body>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Poste occupé</th>
+                <th>Salaire</th>
+                <th>Ancienneté</th>
+                <th>Société</th>
+                <th>Enfant(s)</th>
+                <!-- 
+                <th>Date de début</th>
+                <th>Prime d'ancienneté</th>
+                <th>Montant Total Prime</th>
+                <th>Virement bancaire</th>
+                <th>Service</th>
+                <th>Restauration</th>
+                <th>Chèques Vacances</th>
+                <th> Noel </th> -->
+            </tr>
+        </thead>
+    </table>
+
+    <script type="text/javascript">
+        const dataSet = Employes;
+        new DataTable('#example', {
+            "columnDefs": [ {
+                "targets": 4,
+                "createdCell": function (td, cellData, rowData, row, col) {
+                if ( cellData =="0 an(s)." ) {
+                    $(td).css('color', 'orange')
+                } else {
+                    $(td).css('color', 'green')
+                }
+                }
+            } ],
+            columns: [
+                { data: 'lastName' },
+                { data: 'firstName' },
+                // { data: 'startDate' },
+                { data: 'typeJob' },
+                { data: 'rent' },
+                { data: 'getNbAnnees()' },
+                // { data: 'getNbAnnees()' },
+                // { data: 'getCalculPrimeAnnuelle()' },
+                // { data: 'getVirementBanque()' },
+                // { data: 'placeJob' },
+                { data: 'Society.sName' },
+                // { data: 'Society.food' },
+                { data: 'Child.length' },
+                // { data: 'getChqVac()'},
+                // { data: 'Child[].getChqNoel()'}
+            ],
+            data: dataSet
+        });
+
+
+
+
+
+    </script>
+</body>
+<!-- console.log(Employe1);
+console.log(Employe1.getNbAnnees());
+console.log(Employe1.getCalculPrimeAnnuelle());
+console.log(Employe1.getVirementBanque());
+console.log(Employe1.getChqVac());
+
+console.log(Employe2);
+console.log(Employe2.getNbAnnees());
+console.log(Employe2.getCalculPrimeAnnuelle());
+console.log(Employe2.getVirementBanque());
+console.log(Employe2.getChqVac());
+
+console.log(Employe3);
+console.log(Employe3.getNbAnnees());
+console.log(Employe3.getCalculPrimeAnnuelle());
+console.log(Employe3.getVirementBanque());
+console.log(Employe3.getChqVac());
+
+console.log(Employe4);
+console.log(Employe4.getNbAnnees());
+console.log(Employe4.getCalculPrimeAnnuelle());
+console.log(Employe4.getVirementBanque());
+console.log(Employe4.getChqVac());
+
+console.log(Employe5);
+console.log(Employe5.getNbAnnees());
+console.log(Employe5.getCalculPrimeAnnuelle());
+console.log(Employe5.getVirementBanque());
+console.log(Employe5.getChqVac());
+
+console.log(Director1);
+console.log(Director1.getNbAnnees());
+console.log(Director1.getCalculPrimeAnnuelle());
+console.log(Director1.getVirementBanque());
+console.log(Director1.getChqVac());
+
+console.log(Director2);
+console.log(Director2.getNbAnnees());
+console.log(Director2.getCalculPrimeAnnuelle());
+console.log(Director2.getVirementBanque());
+console.log(Director2.getChqVac());
+
+console.log(Child1);
+console.log(Child1.getChqNoel());
+console.log(Child2);
+console.log(Child2.getChqNoel());
+console.log(Child3);
+console.log(Child3.getChqNoel());
+console.log(Child4);
+console.log(Child4.getChqNoel());
+
+
+console.log(Employe1.Society.food);
+console.log(Employe5.Society.food); -->
+
+</html>
